@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function procesar() {
+            // Obtener el nombre del alumno
+            let nombre = document.getElementById('alumno').value;
+
+            // Conversión con Number()
+            let cal1 = Number(document.getElementById('n1').value);
+            let cal2 = Number(document.getElementById('n2').value);
+            let cal3 = Number(document.getElementById('n3').value);
+
+            let promedio = (cal1 + cal2 + cal3) / 3;
+
+            // El ciclo while para simular el proceso de calificación
+            let i = 1;
+            console.log("Iniciando proceso...");
+            while (i <= 3) {
+                console.log("Procesando calificación " + i);
+                i = i + 1; // El ciclo avanza
+            }
+
+            // Condición para saber si aprobó
+            let mensaje;
+            if (promedio >= 6) {
+                mensaje = "APROBADO";
+            } else {
+                mensaje = "REPROBADO";
+            }
+
+            // Mostrar resultado en el HTML
+            document.getElementById('status').innerHTML = "<p>El alumno/a " + nombre + " tiene un promedio de " + promedio.toFixed(2) + "</p>" +
+                "<p>Resultado: <strong>" + mensaje + "</strong> </p>";
+
+            console.log("Resultado final: " + mensaje);
+        }
+    </script>
+    
+    <h2>Sistema de Calificaciones</h2> <label>Nombre del Alumno:</label>
+      <input type="text" id="alumno"><br><br>
+      <label>Nota 1:</label> <input type="number" id="n1"><br><br> 
+      <label>Nota 2:</label> <input type="number" id="n2"><br><br> 
+      <label>Nota 3:</label> <input type="number" id="n3"><br><br>
+      
+      <button onclick="procesar()">Calcular Resultado</button>
+     <div id="status"></div>
+</body>
+
+</html>
